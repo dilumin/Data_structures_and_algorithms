@@ -13,7 +13,7 @@ void quicksort(int A[] , int f , int l) {
     int pivot = l;
 
     if (f>=l){
-        return;
+        return; //if the length of the array is 1.its already sorted
     }
     while (j <= pivot){
         if(A[j] <= A[pivot]){
@@ -24,7 +24,8 @@ void quicksort(int A[] , int f , int l) {
         }
         j++;
     }
-    quicksort(A ,f , i-1);
+    //divide and conquer
+    quicksort(A ,f , i-1); 
     quicksort(A, i+1, l);
     
 }
@@ -40,7 +41,8 @@ void quicksort_it(int arr[], int f , int l) {
 
     int top = -1;
 
-    track[++top] = 0;
+    //building a stack
+    track[++top] = 0;   
     track[++top] = len - 1;
 
     
@@ -48,32 +50,33 @@ void quicksort_it(int arr[], int f , int l) {
         
         int end = track[top--];
         int start = track[top--];
-
+        //we take pivot to be the last element
         int pivot = arr[end];
         int i = start - 1;
         int j =start;
-        int temp;
-        while (j < end) {
+        int tmp;
+        for (int j = start; j <end ; j++){
+        
             if (arr[j] < pivot) {
-                temp = arr[++i];
+                tmp = arr[++i];
                 arr[i] = arr[j];
-                arr[j] = temp;
+                arr[j] = tmp;
             }
-            j++;
-        }
-        temp = arr[++i];
+            
+        }// swapping the pivot and the ith element
+        tmp = arr[++i];
         arr[i] = pivot;
-        arr[end] = temp;
+        arr[end] = tmp;
 
-        int pivot_i = i;
+        
 
-        if (pivot_i - 1 > start) {
+        if (i - 1 > start) {
             track[++top] = start;
-            track[++top] = pivot_i - 1;
+            track[++top] = i - 1;
         }
 
-        if (pivot_i + 1 < end) {
-            track[++top] = pivot_i + 1;
+        if (i + 1 < end) {
+            track[++top] = i + 1;
             track[++top] = end;
         }
 
