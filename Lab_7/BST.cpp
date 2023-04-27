@@ -25,7 +25,7 @@ struct node *insertNode(struct node *node, int key) {
 
   struct node *temp = new struct node();
   temp->key = key;
-  if (node== nullptr){
+  if (node== nullptr){ // checking if the tree is empty
     node = temp;
   }  else{
     if( node->key >= key ){
@@ -41,6 +41,7 @@ struct node *insertNode(struct node *node, int key) {
 
 // Deleting a node
 struct node *deleteNode(struct node *root, int key) {
+  //first searching for the number in the bst
   if ( root == nullptr ){
 
     return root ;
@@ -54,9 +55,11 @@ struct node *deleteNode(struct node *root, int key) {
     root->right = deleteNode(root->right , key);
 
   }else{
+    //when the node is in a leaf
     if (root->left == nullptr && root->right == nullptr){
             root = nullptr;
         }
+    //if the node only one child
         else if (root ->left == nullptr){
             struct node* temp = root;
             root = temp->right;
@@ -66,7 +69,7 @@ struct node *deleteNode(struct node *root, int key) {
             root = temp->left;
             delete temp;
         }else{
-            
+            //if the node has 2 childs
             struct node* temp1 = root->left;
             while(temp1->right != nullptr){
                 temp1 = temp1->right;
