@@ -29,7 +29,7 @@ struct node *insertNode(struct node *node, int key) {
     node = temp;
   }  else{
     if( node->key >= key ){
-      node->left = insertNode( node->left , key );
+      node->left = insertNode ( node->left , key );
     }else{
       node->right = insertNode(node->right , key);
     }
@@ -75,25 +75,7 @@ struct node *deleteNode(struct node *root, int key) {
             root->key = a;
             root ->left = deleteNode(root->left , a);
 
-    // if(root->left == nullptr && root->right == nullptr){
-    //   root = nullptr;
-    // }else if( root->left != nullptr ){
-    //   root = root->left;
-
-    // }else if(root->right != nullptr ){
-    //   root = root->right;
-    // }else{
-    //   struct node *temp1 = new node();
-    //   temp1 = root->left;
-    //   while(temp1->right == nullptr){
-    //     temp1 = temp1->right;
-
-    //   }
-    //   int a = temp1->key;
-    //   root->key = a;
-    //   root ->left = deleteNode(root->left , a);
-            
-            
+  
 
 
     }
