@@ -26,12 +26,12 @@ struct HashTable{
     int hashfunc(string user_name){
         int sum = 0;
         int hash = 0;
-
+	//add your code below
         for (char a : user_name){
             sum+= a;
         }
 
-	//add your code below
+	
 	
 	
 	
@@ -48,12 +48,13 @@ struct HashTable{
         bool empty;
         hash = hashfunc(user_name);
         empty = is_slot_empty(hash);
+	    //add an if condition to complete the code here
         if (empty){
             password[hash] = user_password;
         }else{
             cout << "Collision occured"<<endl;
         }
-	//add an if condition to complete the code here
+	
         
 
     }
@@ -62,12 +63,13 @@ struct HashTable{
         bool empty;
         hash = hashfunc(user_name);
         empty = is_slot_empty(hash);
+	    //add an if condition to complete the code here
         if (!empty){
             cout << password[hash]<<endl;
         }else{
             cout << "User Does not exist" <<endl;
         }
-	//add an if condition to complete the code here
+	
 	
 	
 	
