@@ -61,13 +61,14 @@ struct HashTable{
         bool empty;
         hash = hashfunc(user_name);
         empty = is_slot_empty(hash);
+	    //add your code below
         if(!empty){
             password[hash].search(user_name);
 
         }else{
             cout << "User doesn't exist"<<endl;
         }
-	//add your code below
+	
 	
 	
 	
