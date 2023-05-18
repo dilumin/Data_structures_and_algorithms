@@ -25,21 +25,11 @@ struct Graph{
 
     void addedge(int u, int v){
         //select node u and push v into u's neighbour
-        for (int i = 0; i<n ; i++){
-            if (nodes[i].label == u ){
-                nodes[i].neighbours.push_back(v);
-                break;
-            }
-        }
-
+            nodes[u].neighbours.push_back(v);
         //select node v and push u into v's neighbour
-        for (int i = 1; i<n ; i++){
-            if (nodes[i].label == v ){
-                nodes[i].neighbours.push_back(u);
-                break;
-            }
+            nodes[v].neighbours.push_back(u);            
         }
-    }
+    
 
     void print(){
         //lets iterate through each node and print its neighbours
